@@ -1,1 +1,6 @@
-# DAWS_ProyectoFinal
+## DAWS Proyecto Final
+
+### Integrantes
+
+* Anibal Gamboa
+* Xavier Andrade
