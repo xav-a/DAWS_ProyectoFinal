@@ -1,0 +1,26 @@
+[
+    {
+        "model": "backend.usuario",
+        "pk": 1,
+        "fields": {
+            "name": "Alex",
+			"last": "Grisly",
+            "email": "something@gmail.com",
+            "username": "Kodiak69",
+			"age":"22",
+            "join_date": "2018-02-14 00:00:00"
+        }
+    },
+    {
+        "model": "backend.usuario",
+        "pk": 2,
+        "fields": {
+            "name": "Greg",
+			"last": "Honeywell",
+            "email": "orother@gmail.com",
+            "username": "mememeister",
+			"age":"21",
+            "join_date": "2018-02-18 00:00:00"
+        }
+    }
+]

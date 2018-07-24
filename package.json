@@ -1,0 +1,33 @@
+{
+  "name": "DAWS_ProyectoFinal",
+  "version": "1.0.0",
+  "description": "DAWS Proyecto Final",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development ./project/frontend/src/index.js --output ./project/frontend/static/frontend/main.js",
+    "build": "webpack --mode production ./project/frontend/src/index.js --output ./project/frontend/static/frontend/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xav-a/DAWS_ProyectoFinal.git"
+  },
+  "keywords": [],
+  "author": "Xavier A, Anigal G",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xav-a/DAWS_ProyectoFinal/issues"
+  },
+  "homepage": "https://github.com/xav-a/DAWS_ProyectoFinal#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0"
+  }
+}
