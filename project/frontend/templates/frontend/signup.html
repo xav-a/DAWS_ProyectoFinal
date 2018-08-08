@@ -1,0 +1,14 @@
+{% extends 'frontend/base.html' %}
+
+{% block content %}
+  <div class="row">
+	<div class="col-sm-12">
+		<h2>Sign up</h2>
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit">Sign up</button>
+		</form>
+	</div>
+  </div>
+{% endblock %}
