@@ -6,7 +6,6 @@ const Table = ({ data }) =>
     <p>Nothing to show</p>
   ) : (
     <div className="column">
-	  <h3>Fucking superb you funky little javascipt</h3>
       <h2 className="subtitle">
         Showing <strong>{data.length} items</strong>
       </h2>

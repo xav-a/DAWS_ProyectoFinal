@@ -6,3 +6,5 @@ from rest_framework import generics
 class UsuarioListCreate(generics.ListCreateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
+
+#class UsuarioView()
