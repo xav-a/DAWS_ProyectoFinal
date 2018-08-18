@@ -22,7 +22,7 @@ def signup(request):
             return redirect('home')
     else:
         form = UserCreationForm()
-    return render(request, 'frontend/signup.html', {'form': form})
+    return render(request, 'registration/signup.html', {'form': form})
 
 class UsuarioListCreate(generics.ListCreateAPIView):
     queryset = Usuario.objects.all()
