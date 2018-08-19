@@ -9,7 +9,8 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Blog App</title>
-		<script src="{% static 'frontend/main.js' %}" defer></script>
+		<script src="{% static 'js/main.js' %}" defer></script>
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	</head>
 	<body>
 		<header>
@@ -24,9 +25,16 @@
 								<li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
 								<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
 								<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+								{% if request.user.is_staff %}
+								<li class="nav-item"><a class="nav-link" id="admin-link" href="#">Reportes</a></li>
+								{% endif %}
 							</ul>
-							<span><a class="nav-link" href="/accounts/signup">Sign Up</a></span>
-							<span><a class="nav-link" href="/accounts/login">Login</a></span>
+							{% if not request.user.is_authenticated %}
+								<span><a class="nav-link" id="signup" href="/accounts/signup">Sign Up</a></span>
+								<span><a class="nav-link" id="login" href="/accounts/login">Login</a></span>
+							{% else %}
+								<span><a class="nav-link" id="logout" href="/accounts/logout">Logout</a></span>
+							{% endif %}
 						</nav>
 					</div>
 				</div>

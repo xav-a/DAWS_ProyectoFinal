@@ -1,0 +1,15 @@
+a#admin-link {
+	color: #fcdb49;
+}
+
+a#admin-link:hover {
+	color: #e0e268;
+}
+
+a#logout {
+	float: right;
+}
+
+a#logout:hover {
+	color: #f46242;
+}
