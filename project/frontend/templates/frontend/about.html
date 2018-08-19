@@ -1,0 +1,29 @@
+{% extends 'frontend/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="row">
+	<div class="col-sm-7">
+		<h3>Quienes somos?</h3>
+		<p>
+			Una página dedicada a personas que desean "bloggear" acerca de sus mascotas, con la contribución
+			de varias personas hemos logrado publicar este sitio para los que desean compartir fotos e ideas sobre
+			sus mascotas al resto del mundo:
+		</p>
+		<p> Los autores detrás de este blog:</p>
+			<ul>
+				<li>Aníbal Gamboa</li>
+				<li>Xavier Andrade</li>
+			</ul>
+		<p>
+			Desarrollo de Aplicaciones Web - Par1 (2018-1T)
+		</p>
+	</div>
+	<div class="col-sm-5">
+		<picture>
+			<img src="{% static 'img/cat.jpg' %}" class="img-fluid" alt="The lovely mascot of our blog, a cat">
+		</picture>
+	</div>
+</div>
+{% endblock %}
