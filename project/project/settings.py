@@ -31,8 +31,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.office365.com'
 EMAIL_PORT = 587
-#EMAIL_HOST_USER = 'fock u'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = 'fucker'
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
@@ -134,6 +134,6 @@ USE_TZ = False
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/accounts/login'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 

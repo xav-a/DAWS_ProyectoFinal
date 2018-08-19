@@ -5,18 +5,23 @@ from django.core.mail import EmailMessage
 
 from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 
 from .models import Usuario
 from .forms import SignUpForm, EditProfileForm
-from .serializers import UsuarioSerializer
+from .serializers import UsuarioSerializer, UserSerializer
 
 from rest_framework import generics
 
+# FUNCTION BASED VIEWS
 
 def signup(request):
+	if request.user.is_authenticated:
+		return redirect('home')
 	if request.method == 'POST':
 		form = SignUpForm(request.POST)
 		if form.is_valid():
@@ -66,9 +71,14 @@ def change_password(request):
 		form = PasswordChangeForm(request.user)
 	return render(request, 'accounts/change_password.html', {'form': form})
 
+	
+# CLASS BASED VIEWS
 @method_decorator(login_required, name='dispatch')
 class UsuarioListCreate(generics.ListCreateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 
-#class UsuarioView()
+@method_decorator(staff_member_required, name='dispatch')
+class UserList(generics.ListAPIView):
+	queryset = User.objects.filter(is_staff=False)
+	serializer_class = UserSerializer

@@ -3,12 +3,16 @@
 {% block content %}
 <div class="row">
 	<div class="col-sm-12">
+		{% if not request.user.is_authenticated %}
 		<h2>Login</h2>
 		<form method="post">
 			{% csrf_token %}
 			{{ form.as_p }}
 			<button type="submit">Login</button>
 		</form>
+		{% else %}
+		<h4>Already Logged IN</h4>
+		{% endif %}
 	</div>
   </div>
 {% endblock %}

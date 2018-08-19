@@ -26,4 +26,5 @@ class DataProvider extends Component {
     return loaded ? this.props.render(data) : <p>{placeholder}</p>;
   }
 }
+
 export default DataProvider;

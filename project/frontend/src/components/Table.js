@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import key from "weak-key";
+
 const Table = ({ data }) =>
   !data.length ? (
     <p>Nothing to show</p>
@@ -25,7 +26,9 @@ const Table = ({ data }) =>
       </table>
     </div>
   );
+
 Table.propTypes = {
   data: PropTypes.array.isRequired
 };
+
 export default Table;
