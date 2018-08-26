@@ -2,7 +2,9 @@ from django.template.loader import render_to_string, get_template
 from django.shortcuts import render, redirect
 from django.utils.decorators import method_decorator
 from django.core.mail import EmailMessage
+from django.dispatch import receiver
 
+from django.contrib.auth.signals import user_logged_in
 from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -17,8 +19,12 @@ from .serializers import UsuarioSerializer, UserSerializer
 
 from rest_framework import generics
 
-# FUNCTION BASED VIEWS
+# SIGNALS
+@receiver(user_logged_in)
+def sig_user_logged_in(sender, user, request, **kwargs):
+	request.session['isLoggedIn'] = True
 
+# FUNCTION BASED VIEWS
 def signup(request):
 	if request.user.is_authenticated:
 		return redirect('home')

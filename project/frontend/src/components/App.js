@@ -3,18 +3,18 @@ import ReactDOM from "react-dom";
 import DataProvider from "./DataProvider";
 import Table from "./Table";
 import DataTable from "./DataTable";
-
-const Index = () => (
-  <DataProvider endpoint="/api/usuarios/" render={data => <Table data={data} />} />
-);
-const wrapper = document.getElementById("index");
-wrapper ? ReactDOM.render(<Index />, wrapper) : null;
+import { AllPosts, Post } from "./BlogPost"
 
 
+//Registered users
 const Users = () => (
   <DataProvider endpoint="/api/users/" render={data => <DataTable data={data} />} />
 );
 const userlist = document.getElementById("user-list");
 userlist ? ReactDOM.render(<Users />, userlist) : null;
 
+//User dashboard
+const allposts = document.getElementById("index");
+allposts ? ReactDOM.render(<AllPosts />, allposts) : null;
 
+//User post

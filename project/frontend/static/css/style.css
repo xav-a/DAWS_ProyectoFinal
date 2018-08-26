@@ -13,3 +13,38 @@ a#logout {
 a#logout:hover {
 	color: #f46242;
 }
+
+.post {
+    background-color: #e6e9ef;
+	margin: 10px 2px;
+	padding: 2px 0px;
+	width: 100%;
+}
+
+.post h4 {
+	margin: 5px 10px;
+}
+
+.post-picture-img {
+	border: 1px solid gray;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.post-content {
+	background-color: #f9fcfc;
+	padding: 5px;
+	border-radius: 7%;
+	margin: 5px 10px;
+	border: 1px solid lightgray;
+}
+
+.post-date {
+	padding: 5px;
+	border-radius: 15%;
+	margin: 5px 10px;
+	background-color: #f9fcfc;
+	width: 30%;
+	border: 1px solid lightgray;
+}

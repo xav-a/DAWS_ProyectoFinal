@@ -30,7 +30,7 @@ exports.create = (req, res) => {
 
 // Retrieve and return all posts from the database.
 exports.findAll = (req, res) => {
-    Post.find()
+    Post.find({userId: req.params.userId})
     .then(posts => {
         res.send(posts);
     }).catch(err => {

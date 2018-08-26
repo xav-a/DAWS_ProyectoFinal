@@ -5,7 +5,7 @@ module.exports = (app) => {
     app.post('/new/post', posts.create);
 
     // Retrieve all Posts
-    app.get('/show/posts', posts.findAll);
+    app.get('/show/posts/:userId', posts.findAll);
 
     // Retrieve a single Post with postId
     app.get('/show/post/:postId', posts.findOne);
