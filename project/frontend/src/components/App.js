@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import DataProvider from "./DataProvider";
-import Table from "./Table";
 import DataTable from "./DataTable";
-import { AllPosts, Post } from "./BlogPost"
+import { AllPosts, Post, NewPost } from "./BlogPost"
 
 
 //Registered users
@@ -20,3 +19,7 @@ allposts ? ReactDOM.render(<AllPosts />, allposts) : null;
 //User post
 const singlepost = document.getElementById("show-post");
 singlepost ? ReactDOM.render(<Post />, singlepost) : null;
+
+//New post
+const newpost = document.getElementById("new-post-form");
+newpost ? ReactDOM.render(<NewPost />, newpost) : null;

@@ -112,8 +112,65 @@ class Post extends Component {
   }
 }
 
+
+class NewPost extends Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+	//console.log(data);
+
+	const object = {};
+	data.forEach(function(value, key){
+		object[key] = value;
+	});
+	object["userId"] = parseInt($("#userId").attr("value"), 10);
+	object["imageURL"] = (object["imageURL"].trim() === "") ? null : object["imageURL"].trim();
+	const json = JSON.stringify(object);
+    //console.log(json);
+   $.ajax({
+      url: `http://127.0.0.1:3000/new/post`,
+	  type: 'POST',
+      cache: false,
+	  data: json,
+	  contentType: "application/json",
+      complete: function(response) {
+		console.log(response);
+		$(location).attr('href', '/');
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(`new/post/`, status, err.toString());
+      }.bind(this)
+    });
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label htmlFor="title">Title</label>
+        <input id="title" name="title" type="text" />
+
+        <label htmlFor="content">Post</label>
+        <textarea id="content" name="content" />
+
+        <label htmlFor="imageURL">(Opcional) Imagen</label>
+		<input id="imageURL" name="imageURL" type="url"/>
+		
+        <button>Post!</button>
+      </form>
+    );
+  }
+
+	
+}
+
 export {
 	AllPosts,
 	Post,
+	NewPost,
 }
 
