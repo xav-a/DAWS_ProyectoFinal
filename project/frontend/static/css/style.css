@@ -21,7 +21,7 @@ a#logout:hover {
 	width: 100%;
 }
 
-.post h4 {
+.post-header {
 	margin: 5px 10px;
 }
 
@@ -45,6 +45,21 @@ a#logout:hover {
 	border-radius: 15%;
 	margin: 5px 10px;
 	background-color: #f9fcfc;
-	width: 30%;
+	display: inline-block;
 	border: 1px solid lightgray;
 }
+
+.delete-post-form {
+	background-color: #f9ede0;
+	text-align: left;
+	margin: 10px;
+	padding: 5px;
+}
+
+.edit-post-form {
+	background-color: #edfcde;
+	text-align: left;
+	margin: 10px;
+	padding: 5px;
+}
+

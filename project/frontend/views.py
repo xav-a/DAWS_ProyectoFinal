@@ -12,3 +12,6 @@ def about(request):
 @staff_member_required
 def user_list(request):
 	return render(request, 'frontend/user_list.html')
+
+def show_post(request, post_id):
+	return render(request, 'frontend/show_post.html', {'post_id':post_id})

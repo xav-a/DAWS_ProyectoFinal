@@ -1,0 +1,21 @@
+{% extends 'frontend/base.html' %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-sm-9">
+			<div data-post-id="{{ post_id }}" id="show-post" class="post"> 
+			<!-- React -->
+			</div>			
+		</div>
+		<div class="col-sm-3">
+			<div class="delete-post-form">
+				<span>Delete Post:</span>
+				<button id="delete-post">Delete</button>
+			</div>
+			<div class="edit-post-form">
+				<span>Edit Post:</span>
+				<button id="edit-post">Edit</button>
+			</div>
+		</div>
+	</div>
+{% endblock %}

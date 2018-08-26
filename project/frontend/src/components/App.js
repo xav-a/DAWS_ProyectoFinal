@@ -18,3 +18,5 @@ const allposts = document.getElementById("index");
 allposts ? ReactDOM.render(<AllPosts />, allposts) : null;
 
 //User post
+const singlepost = document.getElementById("show-post");
+singlepost ? ReactDOM.render(<Post />, singlepost) : null;
