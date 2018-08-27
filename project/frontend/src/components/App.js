@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import DataProvider from "./DataProvider";
 import DataTable from "./DataTable";
-import { AllPosts, Post, NewPost } from "./BlogPost"
+import { AllPosts, Post, NewPost, EditPost } from "./BlogPost"
 
 
 //Registered users
@@ -23,3 +23,7 @@ singlepost ? ReactDOM.render(<Post />, singlepost) : null;
 //New post
 const newpost = document.getElementById("new-post-form");
 newpost ? ReactDOM.render(<NewPost />, newpost) : null;
+
+//Edit post
+const editpost = document.getElementById("edit-post-container");
+editpost ? ReactDOM.render(<EditPost />, editpost) : null;

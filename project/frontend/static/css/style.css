@@ -102,3 +102,12 @@ img {
 #new-post-form form button{
 	width: auto;
 }
+
+#edit-post-container form *{
+	width: 70%;
+	height: auto;
+	display: block;
+}
+#edit-post-container form button{
+	width: auto;
+}
