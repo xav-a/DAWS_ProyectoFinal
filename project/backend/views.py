@@ -1,8 +1,9 @@
 from django.template.loader import render_to_string, get_template
 from django.shortcuts import render, redirect
 from django.utils.decorators import method_decorator
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, send_mail, BadHeaderError
 from django.dispatch import receiver
+from django.http import HttpResponse, HttpResponseRedirect
 
 from django.contrib.auth.signals import user_logged_in
 from django.contrib.auth import login, authenticate, update_session_auth_hash
@@ -14,7 +15,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 
 from .models import Usuario
-from .forms import SignUpForm, EditProfileForm
+from .forms import SignUpForm, EditProfileForm, ContactForm
 from .serializers import UsuarioSerializer, UserSerializer
 
 from rest_framework import generics
@@ -25,6 +26,31 @@ def sig_user_logged_in(sender, user, request, **kwargs):
 	request.session['isLoggedIn'] = True
 
 # FUNCTION BASED VIEWS
+@staff_member_required
+def user_list(request):
+    return render(request, 'frontend/user_list.html')
+
+@staff_member_required
+def post_counts(request):
+	return render(request, 'frontend/post_counts.html')
+
+def contact(request):
+	if request.method == 'GET':
+		form = ContactForm()
+	else:
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			subject = form.cleaned_data['subject']
+			from_email = form.cleaned_data['from_email']
+			message = form.cleaned_data['message']
+			try:
+				send_mail(subject, message, from_email, ['example@mail.com'])
+			except BadHeaderError:
+				return HttpResponse('Invalid header found.')
+			return redirect('home')
+	return render(request, "frontend/contact.html", {'form': form})
+
+
 def signup(request):
 	if request.user.is_authenticated:
 		return redirect('home')

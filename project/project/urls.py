@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from backend.views import signup, profile, change_password
+from backend.views import signup, profile, change_password, contact, user_list, post_counts
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,7 @@ urlpatterns = [
 	path('accounts/signup/', signup, name='signup'),
 	path('accounts/profile/', profile, name='profile'),
 	path('accounts/settings/', change_password, name='change_password'),
+	path('admin/user_list/', user_list, name='user_list'),
+	path('admin/post_counts/', post_counts, name='post_counts'),
+	path('contact/', contact, name='contact'),
 ]

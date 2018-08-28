@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import DataProvider from "./DataProvider";
 import DataTable from "./DataTable";
 import { AllRecentPosts, AllPosts, Post, NewPost, EditPost } from "./BlogPost";
+import { PostCounts } from "./D3Graph"
 
 //Registered users
 const Users = () => (
@@ -33,3 +34,13 @@ newpost ? ReactDOM.render(<NewPost />, newpost) : null;
 //Edit post
 const editpost = document.getElementById("edit-post-container");
 editpost ? ReactDOM.render(<EditPost />, editpost) : null;
+
+//Post counts
+const Counts = () => (
+  <DataProvider
+    endpoint="http://127.0.0.1:3000/show/counts/"
+    render={data => <PostCounts data={data} />}
+  />
+);
+const postcounts = document.getElementById("post-counts");
+postcounts ? ReactDOM.render(<Counts />, postcounts) : null;
