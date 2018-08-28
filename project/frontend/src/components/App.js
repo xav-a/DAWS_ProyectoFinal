@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import DataProvider from "./DataProvider";
 import DataTable from "./DataTable";
 import { AllRecentPosts, AllPosts, Post, NewPost, EditPost } from "./BlogPost";
+import UserCombo from "./Form.js";
 
 //Registered users
 const Users = () => (
@@ -11,8 +12,20 @@ const Users = () => (
     render={data => <DataTable data={data} />}
   />
 );
+const BlogsPosts = () => (
+  <DataProvider
+    endpoint="http://127.0.0.1:3000/show/posts"
+    render={data => <DataTable data={data} />}
+  />
+);
 const userlist = document.getElementById("user-list");
 userlist ? ReactDOM.render(<Users />, userlist) : null;
+
+const bloglist = document.getElementById("blog-list");
+bloglist ? ReactDOM.render(<BlogsPosts />, bloglist) : null;
+
+const Ucombo = document.getElementById("Ucombo");
+Ucombo ? ReactDOM.render(<UserCombo />, Ucombo) : null;
 
 //all recent posts
 const allRecentposts = document.getElementById("recent");
