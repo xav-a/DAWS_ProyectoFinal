@@ -68,7 +68,6 @@ PostCounts.propTypes = {
   data: PropTypes.array.isRequired
 };
 
-
 const PostCounts2 = ({ data }) =>
   !data.length ? 
   ( <p>Nothing to show</p> ) : 
