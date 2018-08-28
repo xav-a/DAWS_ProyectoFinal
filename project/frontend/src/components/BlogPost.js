@@ -27,22 +27,28 @@ class AllRecentPosts extends Component {
     const { data } = this.state;
     return (
       <div>
-        <h3>Recientes</h3>
-        {data.map(post => (
-          <div className="post" key={post._id}>
-            <h4 className="post-header">{post.title}</h4>
-            {post.imageURL != null && (
-              <picture className="post-picture">
-                <img className="post-picture-img" src={post.imageURL} />
-              </picture>
-            )}
-            <p
-              className="post-content"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
-            <p className="post-date">{post.createdAt}</p>
-          </div>
-        ))}
+        <h2>Recientes</h2>
+        {data
+          .sort(function(a, b) {
+            if (a.createdAt < b.createdAt) return 1;
+            else if (a.createdAt > b.createdAt) return -1;
+            else return 0;
+          })
+          .map(post => (
+            <div className="post" key={post._id}>
+              <h4 className="post-header">{post.title}</h4>
+              {post.imageURL != null && (
+                <picture className="post-picture">
+                  <img className="post-picture-img" src={post.imageURL} />
+                </picture>
+              )}
+              <p
+                className="post-content"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
+              <p className="post-date">{post.createdAt}</p>
+            </div>
+          ))}
       </div>
     );
   }
