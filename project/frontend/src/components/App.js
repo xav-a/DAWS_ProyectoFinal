@@ -4,6 +4,7 @@ import DataProvider from "./DataProvider";
 import DataTable from "./DataTable";
 import { AllRecentPosts, AllPosts, Post, NewPost, EditPost } from "./BlogPost";
 import UserCombo from "./Form.js";
+import { PostCounts, PostCounts2 } from "./D3Graph"
 
 //Registered users
 const Users = () => (
@@ -46,3 +47,22 @@ newpost ? ReactDOM.render(<NewPost />, newpost) : null;
 //Edit post
 const editpost = document.getElementById("edit-post-container");
 editpost ? ReactDOM.render(<EditPost />, editpost) : null;
+
+//Post counts
+const Counts = () => (
+  <DataProvider
+    endpoint="http://127.0.0.1:3000/show/counts/"
+    render={data => <PostCounts data={data} />}
+  />
+);
+const postcounts = document.getElementById("post-counts");
+postcounts ? ReactDOM.render(<Counts />, postcounts) : null;
+
+const Counts2 = () => (
+  <DataProvider
+    endpoint="http://127.0.0.1:3000/show/counts/"
+    render={data => <PostCounts2 data={data} />}
+  />
+);
+const postcounts2 = document.getElementById("post-counts-2");
+postcounts2 ? ReactDOM.render(<Counts2 />, postcounts2) : null;

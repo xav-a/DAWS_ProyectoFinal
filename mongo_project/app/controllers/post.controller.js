@@ -31,7 +31,7 @@ exports.create = (req, res) => {
 };
 // Retrieve and return all posts from the database
 exports.findAllPosts = (req, res) => {
-  Post.find()
+  Post.find().sort('date')
     .then(posts => {
       res.send(posts);
     })
@@ -53,6 +53,25 @@ exports.findAll = (req, res) => {
         message: err.message || "Some error occurred while retrieving posts."
       });
     });
+};
+
+//Frecuencia de posts por usuario
+exports.findFreqs = (req, res) => {
+  Post.aggregate([
+	{
+      $group: {
+		  _id: "$userId",
+          count: { $sum: 1 }
+	  }
+	}])
+	.then(postCounts => {
+      res.send(postCounts);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving user post counts."
+      });
+  });	
 };
 
 // Find a single post with a postId

@@ -7,8 +7,11 @@ module.exports = app => {
   // Retrieve all Posts
   app.get("/show/posts/", posts.findAllPosts);
 
-  // Retrieve all Posts
+  // Retrieve all Posts by userId
   app.get("/show/posts/:userId", posts.findAll);
+  
+  // Retrieve user posts counts
+  app.get("/show/counts", posts.findFreqs);
 
   // Retrieve a single Post with postId
   app.get("/show/post/:postId", posts.findOne);

@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 
 
@@ -14,12 +13,6 @@ def about(request):
 
 def recientes(request):
     return render(request, 'frontend/recent.html')
-
-
-@staff_member_required
-def user_list(request):
-    return render(request, 'frontend/user_list.html')
-
 
 @login_required
 def show_post(request, post_id):

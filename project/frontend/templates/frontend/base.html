@@ -10,11 +10,11 @@
 	 crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	 crossorigin="anonymous"></script>
-
+	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	 crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-
+  
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Blog App</title>
 
@@ -45,14 +45,23 @@
 							</li>
 							{% endif %}
 							<li class="nav-item">
-								<a class="nav-link" href="#">Contact</a>
+								<a class="nav-link" href="/contact">Contact</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="/about">About Us</a>
 							</li>
 							{% if request.user.is_staff %}
 							<li class="nav-item">
-								<a class="nav-link" id="admin-link" href="/admin/user_list">Reportes</a>
+								<div class="dropdown">
+								<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+								Reportes
+								<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="/admin/user_list">Usuarios Regitrados</a></li>
+									<li><a href="/admin/post_counts">Estadisticos</a></li>
+								</ul>
+								</div>
 							</li>
 							{% endif %}
 						</ul>
