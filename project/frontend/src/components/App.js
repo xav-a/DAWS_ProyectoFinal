@@ -2,15 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import DataProvider from "./DataProvider";
 import DataTable from "./DataTable";
-import { AllPosts, Post, NewPost, EditPost } from "./BlogPost"
-
+import { AllRecentPosts, AllPosts, Post, NewPost, EditPost } from "./BlogPost";
 
 //Registered users
 const Users = () => (
-  <DataProvider endpoint="/api/users/" render={data => <DataTable data={data} />} />
+  <DataProvider
+    endpoint="/api/users/"
+    render={data => <DataTable data={data} />}
+  />
 );
 const userlist = document.getElementById("user-list");
 userlist ? ReactDOM.render(<Users />, userlist) : null;
+
+//all recent posts
+const allRecentposts = document.getElementById("recent");
+allRecentposts ? ReactDOM.render(<AllRecentPosts />, allRecentposts) : null;
 
 //User dashboard
 const allposts = document.getElementById("index");

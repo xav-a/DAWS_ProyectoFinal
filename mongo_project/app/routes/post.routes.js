@@ -1,18 +1,21 @@
-module.exports = (app) => {
-    const posts = require('../controllers/post.controller.js');
+module.exports = app => {
+  const posts = require("../controllers/post.controller.js");
 
-    // Create a new Post
-    app.post('/new/post', posts.create);
+  // Create a new Post
+  app.post("/new/post", posts.create);
 
-    // Retrieve all Posts
-    app.get('/show/posts/:userId', posts.findAll);
+  // Retrieve all Posts
+  app.get("/show/posts/", posts.findAllPosts);
 
-    // Retrieve a single Post with postId
-    app.get('/show/post/:postId', posts.findOne);
+  // Retrieve all Posts
+  app.get("/show/posts/:userId", posts.findAll);
 
-    // Update a Post with postId
-    app.put('/edit/post/:postId', posts.update);
+  // Retrieve a single Post with postId
+  app.get("/show/post/:postId", posts.findOne);
 
-    // Delete a Post with postId
-    app.delete('/delete/post/:postId', posts.delete);
-}
+  // Update a Post with postId
+  app.put("/edit/post/:postId", posts.update);
+
+  // Delete a Post with postId
+  app.delete("/delete/post/:postId", posts.delete);
+};

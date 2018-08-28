@@ -4,7 +4,7 @@
   "description": "DAWS Proyecto Final",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ./project/frontend/src/index.js --output ./project/frontend/static/js/main.js",
+    "dev": "webpack --watch --mode development ./project/frontend/src/index.js --output ./project/frontend/static/js/main.js",
     "build": "webpack --mode production ./project/frontend/src/index.js --output ./project/frontend/static/js/main.js"
   },
   "repository": {
